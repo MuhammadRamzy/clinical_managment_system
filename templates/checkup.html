@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% for data in data %}
+        <div class="col-md-12">
+            <div class="container">
+                <h3 class="text-primary">Token no : {{data.tokenNo}}</h3>
+                <form class="mt-2" method="POST">
+                    <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="tel" class="form-control" name="Name" required value="{{data.name}}">
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="number" class="form-control" name="ph.no" required value="{{data.phNo}}">
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">House Name</label>
+                    <input type="text" class="form-control" name="Ho.name" required value="{{data.hoName}}">
+                    </div>
+                    <div class="gender mt-2">
+                        <label class="form-label">Gender</label><br>
+                        <h6>{{data.gender.upper()}}</h6>
+                    </div>
+                    <div class="mb-3 mt-2">
+                    <label class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" name="DOB" required value="{{data.DOB}}">
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" name="symptoms" placeholder="Symptoms here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Symptoms</label>
+                    </div>
+                    <div class="form-floating mt-2">
+                        <textarea class="form-control" name="prescription" placeholder="Your Presciption here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Prescription</label>
+                    </div>
+                    <div class="form-floating mt-2">
+                        <textarea class="form-control" name="notes" placeholder="Your Notes here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Notes</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Submit...</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

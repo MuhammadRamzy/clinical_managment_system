@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container">
+                <div>
+                    {% for data in datas %}
+                        <label>Token</label>
+                        <h5>{{data.tokenNo}}</h5>
+                        <label>Name</label>
+                        <h5>{{data.name}}</h5>
+                        <label>Phone No</label>
+                        <h5>{{data.phNo}}</h5>
+                        <label>House Name</label>
+                        <h5>{{data.hoName}}</h5>
+                        <label>Gender</label>
+                        <h5>{{data.gender}}</h5>
+                        <label>DOB</label>
+                        <h5>{{data.DOB}}</h5>
+                    {% endfor %}
+                </div>
+                <div>
+                    <table class="table table-dark table-striped"">
+                        <thead>
+                          <tr>
+                            <th scope="col">Medicne</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for medicne in medicnes %}
+                                <tr>
+                                    <td>{{medicne}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="container">
+                <form class="mt-2">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Symptoms</label>
+                    </div>
+                    <div class="form-floating mt-2">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Presciption</label>
+                    </div>
+                    <div class="form-floating mt-2">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Notes</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Register...</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div>
+                    <table class="table table-dark table-striped" id="table_id">
+                        <thead>
+                          <tr>
+                            <th scope="col">TOKEN.NO</th>
+                            <th scope="col">PATIENT NAME</th>
+                            <th scope="col">GENDER</th>
+                            <th>select</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for data in datas%}
+                            <tr>
+                              <td scope="row">{{data.tokenNo}}</td>
+                              <td>{{data.name}}</td>
+                              {% if data.gender == 'male'%}
+                                <td>M</td>
+                              {%else%}
+                                <td>F</td>
+                              {% endif %}
+                              <td><a href="/billing/{{data.tokenNo}}"><button class="btn btn-success">select</button></a></td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+    </script>
+{% endblock %}
