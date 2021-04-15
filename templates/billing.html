@@ -41,18 +41,12 @@
         <div class="col-md-8">
             <div class="container">
                 <form class="mt-2">
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Symptoms</label>
-                    </div>
-                    <div class="form-floating mt-2">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Presciption</label>
-                    </div>
-                    <div class="form-floating mt-2">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Notes</label>
-                    </div>
+                    {% for medicne in medicnes %}
+                        <div class="mb-3">
+                            <label class="form-label">{{medicne}}</label>
+                            <input type="number" class="form-control" name="token" required>
+                        </div>
+                    {% endfor %}
                     <button type="submit" class="btn btn-primary mt-2">Register...</button>
                   </form>
             </div>
