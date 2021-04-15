@@ -40,11 +40,11 @@
         </div>
         <div class="col-md-8">
             <div class="container">
-                <form class="mt-2">
+                <form class="mt-2" method="POST">
                     {% for medicne in medicnes %}
                         <div class="mb-3">
                             <label class="form-label">{{medicne}}</label>
-                            <input type="number" class="form-control" name="token" required>
+                            <input type="number" class="form-control" name="{{medicne}}" required>
                         </div>
                     {% endfor %}
                     <button type="submit" class="btn btn-primary mt-2">Register...</button>

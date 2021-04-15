@@ -83,15 +83,18 @@ def pharmacy():
         details.append(x)
     return render_template('pharmacy.html',datas = details)
 
-@app.route('/billing/<string:token>')
+@app.route('/billing/<string:token>',methods = ['GET','POST'])
 def billing(token):
-    details = []
-    for x in patients.find({ "tokenNo": token }):
-            details.append(x)
-    medicne = x.pop('prescription')
-    medicne = medicne.split()
-    print(medicne)
-    return render_template('billing.html',datas = details,medicnes=medicne)
+    if request.method == 'GET':
+        details = []
+        for x in patients.find({ "tokenNo": token }):
+                details.append(x)
+        medicne = x.pop('prescription')
+        medicne = medicne.split()
+        return render_template('billing.html',datas = details,medicnes=medicne)
+    else:
+        print(request.form)
+        return f'{request.form}'
 
 if __name__ == '__main__':
     app.run(debug=True)
